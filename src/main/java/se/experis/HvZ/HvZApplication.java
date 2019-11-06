@@ -15,6 +15,8 @@ import java.util.Date;
 @SpringBootApplication
 public class HvZApplication {
 
+	//@Autowired
+	//private GameRepository gameRepository;
 	@Autowired
 	private GameRepository gameRepository;
 
