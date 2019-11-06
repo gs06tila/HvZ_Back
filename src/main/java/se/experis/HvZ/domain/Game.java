@@ -12,7 +12,7 @@ public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long gameId;
+    private Long gameId;
 
     @Column(length = 255)
     private String name;
@@ -61,11 +61,11 @@ public class Game {
         this.endDate = endDate;
     }
 
-    public long getGameId() {
+    public Long getGameId() {
         return gameId;
     }
 
-    public void setGameId(long gameId) {
+    public void setGameId(Long gameId) {
         this.gameId = gameId;
     }
 
