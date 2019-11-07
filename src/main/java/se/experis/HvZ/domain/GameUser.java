@@ -27,16 +27,20 @@ public class GameUser {
     @Column(length=255)
     private String email;
 
+    @Column(length = 255)
+    private String userName;
+
     public GameUser() {
     }
 
-    public GameUser(String firstName, String lastName, String token, String password, String email) {
+    public GameUser(String firstName, String lastName, String token, String password, String email, String userName) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.token = token;
         this.password = password;
         this.email = email;
+        this.userName = userName;
     }
 
     public Long getUserId() {
@@ -81,5 +85,10 @@ public class GameUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUserName() { return userName; }
+
+    public void setUserName(String userName) {this.userName = userName;
     }
 }
