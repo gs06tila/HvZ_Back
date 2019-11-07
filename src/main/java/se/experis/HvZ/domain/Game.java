@@ -53,6 +53,9 @@ public class Game {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
     private List<Player> players;
 
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
+    private List<Mission> missions;
+
     //-----------------Constructors------------------------------//
 
     public Game() {
@@ -178,5 +181,13 @@ public class Game {
 
     public void setPlayers(List<Player> players) {
         this.players = players;
+    }
+
+    public List<Mission> getMissions() {
+        return missions;
+    }
+
+    public void setMissions(List<Mission> missions) {
+        this.missions = missions;
     }
 }
