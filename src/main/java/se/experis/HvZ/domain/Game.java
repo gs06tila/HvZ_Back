@@ -45,6 +45,16 @@ public class Game {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
+    //-----------------Relations------------------------------//
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    private List<Death> deaths;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    private List<Player> players;
+
+    //-----------------Constructors------------------------------//
+
     public Game() {
     }
 
@@ -62,8 +72,9 @@ public class Game {
         this.endDate = endDate;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
-    private List<Game> games;
+
+
+    //-----------------GETTERS AND SETTERS------------------------------//
 
     public Long getGameId() {
         return gameId;
@@ -153,11 +164,19 @@ public class Game {
         this.endDate = endDate;
     }
 
-    public List<Game> getGames() {
-        return games;
+    public List<Death> getDeaths() {
+        return deaths;
     }
 
-    public void setGames(List<Game> games) {
-        this.games = games;
+    public void setDeaths(List<Death> deaths) {
+        this.deaths = deaths;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 }
