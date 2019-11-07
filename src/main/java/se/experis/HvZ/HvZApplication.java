@@ -58,8 +58,8 @@ public class HvZApplication {
             gameUserRepository.save(u3);
             GameUser u4 = new GameUser("u1", "rrrrrrrrr", "Token", "Password", "kalle@kalle.se", "rTheDestroyer");
             gameUserRepository.save(u4);
-            GameUser u5 = new GameUser("u2", "ttttttttt", "Token", "Password", "kalle@kalle.se", "theDestroyer");
-            gameUserRepository.save(u5);
+            //GameUser u5 = new GameUser("u2", "ttttttttt", "Token", "Password", "kalle@kalle.se", "theDestroyer");
+            //gameUserRepository.save(u5);
 		};
 	}
 
