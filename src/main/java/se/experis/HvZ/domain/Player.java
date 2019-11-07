@@ -26,21 +26,32 @@ public class Player {
     @JoinColumn(name = "userId")
     private GameUser gameUser;
 
-    // gameId (FK)
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gameId")
+    private Game game;
 
     public Player() {
     }
 
-    public Player(String biteCode, GameUser gameUser) {
+    public Player(String biteCode, GameUser gameUser, Game game) {
         this.isHuman = true;
         this.isPatientZero = false;
         this.biteCode = biteCode;
         this.gameUser = gameUser;
+        this.game = game;
     }
 
 
     //-----------------GETTERS AND SETTERS------------------------------//
+
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
     public GameUser getGameUser() {
         return gameUser;

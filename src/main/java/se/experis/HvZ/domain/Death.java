@@ -24,6 +24,8 @@ public class Death {
     @Column(precision=9, scale=6)
     private Double lng;
 
+    //-----------------------Relations-----------------------------------//
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gameId")
     private Game game;
@@ -44,7 +46,7 @@ public class Death {
         this.game = game;
     }
 
-
+//-----------------GETTERS AND SETTERS------------------------------//
 
     public Game getGame() {
         return game;

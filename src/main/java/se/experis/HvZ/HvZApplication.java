@@ -50,12 +50,9 @@ public class HvZApplication {
 			GameUser u3 = new GameUser("u3", "Svensson", "Token", "Password", "kalle@kalle.se", "kalleTheDestroyer");
 			userRepository.save(u3);
 
-			Player p1 = new Player("p1", u3);
+			Player p1 = new Player("p1", u3, g1);
 			playerRepository.save(p1);
-			Player p2 = new Player("p2", u2);
-			playerRepository.save(p2);
-			Player p3 = new Player("p3", u1);
-			playerRepository.save(p3);
+
 
 
 		};
