@@ -8,10 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import se.experis.HvZ.domain.Game;
-import se.experis.HvZ.domain.GameRepository;
-import se.experis.HvZ.domain.GameUser;
-import se.experis.HvZ.domain.GameUserRepository;
+import se.experis.HvZ.domain.*;
 
 import java.util.Date;
 
@@ -26,6 +23,9 @@ public class HvZApplication {
 
 	@Autowired
 	private GameUserRepository userRepository;
+
+	@Autowired
+	private PlayerRepository playerRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(HvZApplication.class, args);
@@ -42,6 +42,9 @@ public class HvZApplication {
 
 			GameUser u1 = new GameUser("Kalle", "Svensson", "Token", "Password", "kalle@kalle.se", "kalleTheDestroyer");
 			userRepository.save(u1);
+
+			Player p1 = new Player("bitecodeGoesHere");
+			playerRepository.save(p1);
 		};
 	}
 
