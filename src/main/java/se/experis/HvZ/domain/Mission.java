@@ -3,6 +3,7 @@ package se.experis.HvZ.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="mission")
@@ -36,13 +37,17 @@ public class Mission {
     @Column(precision=8, scale=6)
     private Double latX;
 
-    // gameId (FK)
+    //----------RELATIONS------------//
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="gameId")
+    private List<Game> games;
 
 
     public Mission() {
     }
 
-    public Mission(String name, boolean isHumanVisible, boolean isZombieVisible, String description, Date startDate, Date endDate, Double longX, Double latX) {
+    public Mission(String name, boolean isHumanVisible, boolean isZombieVisible, String description, Date startDate, Date endDate, Double longX, Double latX, List<Game> game) {
         this.name = name;
         this.isHumanVisible = isHumanVisible;
         this.isZombieVisible = isZombieVisible;
@@ -51,6 +56,7 @@ public class Mission {
         this.endDate = endDate;
         this.longX = longX;
         this.latX = latX;
+        this.games = game;
     }
 
     public Long getMissionId() {
@@ -119,5 +125,13 @@ public class Mission {
 
     public void setLatX(Double latX) {
         this.latX = latX;
+    }
+
+    public List<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
     }
 }
