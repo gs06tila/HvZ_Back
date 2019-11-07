@@ -3,6 +3,8 @@ package se.experis.HvZ.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name="death")
@@ -22,7 +24,10 @@ public class Death {
     @Column(precision=9, scale=6)
     private Double lng;
 
-    // gameId (FK)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gameId")
+    private Game game;
+
     // killerId (FK)
     // victimId (FK)
 
@@ -30,10 +35,23 @@ public class Death {
     public Death() {
     }
 
-    public Death(String timeOfDeath, Double lat, Double lng) {
+    public Death(Double lat, Double lng, Game game) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
         this.timeOfDeath = timeOfDeath;
         this.lat = lat;
         this.lng = lng;
+        this.game = game;
+    }
+
+
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 
     public Long getDeathId() {

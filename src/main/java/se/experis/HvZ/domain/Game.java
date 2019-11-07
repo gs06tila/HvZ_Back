@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="game")
@@ -60,6 +61,9 @@ public class Game {
         this.startDate = startDate;
         this.endDate = endDate;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    private List<Game> games;
 
     public Long getGameId() {
         return gameId;
@@ -147,5 +151,13 @@ public class Game {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public List<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
     }
 }
