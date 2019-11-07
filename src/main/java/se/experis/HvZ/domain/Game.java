@@ -1,5 +1,6 @@
 package se.experis.HvZ.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -48,16 +49,23 @@ public class Game {
     //-----------------Relations------------------------------//
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    @JsonIgnore
     private List<Death> deaths;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    @JsonIgnore
     private List<Player> players;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    @JsonIgnore
     private List<Chat> chats;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
     private List<Mission> missions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    @JsonIgnore
+    private List<Squad> squads;
 
     //-----------------Constructors------------------------------//
 
@@ -201,5 +209,13 @@ public class Game {
     public void setMissions(List<Mission> missions) {
         this.missions = missions;
 
+    }
+
+    public List<Squad> getSquads() {
+        return squads;
+    }
+
+    public void setSquads(List<Squad> squads) {
+        this.squads = squads;
     }
 }

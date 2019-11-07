@@ -1,5 +1,6 @@
 package se.experis.HvZ.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
@@ -24,6 +25,7 @@ public class Player {
 
     @OneToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
+    @JsonIgnore
     private GameUser gameUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
