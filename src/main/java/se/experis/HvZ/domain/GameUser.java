@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 @Entity
-@Table(name="gameuser")
+@Table(name="gameUser")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class GameUser {
     @Id
@@ -30,6 +30,11 @@ public class GameUser {
     @Column(length = 255)
     private String userName;
 
+    //------------RELATIONS---------------------//
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "gameUser")
+    private Player player;
+
+
     public GameUser() {
     }
 
@@ -41,6 +46,18 @@ public class GameUser {
         this.password = password;
         this.email = email;
         this.userName = userName;
+    }
+
+
+    //-------------GETTERS AND SETTERS--------//
+
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public Long getUserId() {

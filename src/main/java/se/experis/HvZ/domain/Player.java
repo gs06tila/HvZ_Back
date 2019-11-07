@@ -20,7 +20,11 @@ public class Player {
     @Column(length=255)
     private String biteCode;
 
-    //userId (FK)
+    //-----------------------Relations-----------------------------------//
+
+    @OneToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private GameUser gameUser;
 
     // gameId (FK)
 
@@ -28,11 +32,24 @@ public class Player {
     public Player() {
     }
 
-    public Player(String biteCode) {
+    public Player(String biteCode, GameUser gameUser) {
         this.isHuman = true;
         this.isPatientZero = false;
         this.biteCode = biteCode;
+        this.gameUser = gameUser;
     }
+
+
+    //-----------------GETTERS AND SETTERS------------------------------//
+
+    public GameUser getGameUser() {
+        return gameUser;
+    }
+
+    public void setGameUser(GameUser gameUser) {
+        this.gameUser = gameUser;
+    }
+
 
     public Long getPlayerId() {
         return playerId;
