@@ -27,6 +27,9 @@ public class HvZApplication {
 	@Autowired
 	private PlayerRepository playerRepository;
 
+	@Autowired
+	private MissionRepository missionRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(HvZApplication.class, args);
 		logger.info("Hello spring boot");
@@ -45,6 +48,7 @@ public class HvZApplication {
 
 			Player p1 = new Player("bitecodeGoesHere");
 			playerRepository.save(p1);
+
 		};
 	}
 
