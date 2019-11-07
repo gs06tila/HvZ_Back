@@ -1,5 +1,8 @@
 package se.experis.HvZ;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,18 +15,21 @@ import se.experis.HvZ.domain.GameUserRepository;
 
 import java.util.Date;
 
+
 @SpringBootApplication
 public class HvZApplication {
 
-	//@Autowired
-	//private GameRepository gameRepository;
+	private static final Logger logger = LoggerFactory.getLogger(HvZApplication.class);
+
 	@Autowired
 	private GameRepository gameRepository;
 
 	@Autowired
 	private GameUserRepository userRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(HvZApplication.class, args);
+		logger.info("Hello spring boot");
 	}
 
 	@Bean
