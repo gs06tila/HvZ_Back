@@ -10,7 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import se.experis.HvZ.domain.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -32,6 +34,8 @@ public class HvZApplication {
 
 	@Autowired
 	private ChatRepository chatRepository;
+
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(HvZApplication.class, args);
@@ -72,6 +76,11 @@ public class HvZApplication {
 			Chat c1 = new Chat("Hello chat message", true, false, true, g1);
 			chatRepository.save(c1);
 
+			List<Game> lg1 = new ArrayList<Game>();
+			lg1.add(g1);
+			lg1.add(g2);
+			Mission m1 = new Mission("help", true, true, "kill all", d1, d2, 50.376381D, 51.235437D, lg1);
+			missionRepository.save(m1);
 		};
 	}
 

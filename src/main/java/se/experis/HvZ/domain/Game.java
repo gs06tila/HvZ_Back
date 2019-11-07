@@ -192,6 +192,7 @@ public class Game {
 
     public void setChats(List<Chat> chats) {
         this.chats = chats;
+    }
 
     public List<Mission> getMissions() {
         return missions;
