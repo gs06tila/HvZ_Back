@@ -30,6 +30,9 @@ public class HvZApplication {
 	@Autowired
 	private MissionRepository missionRepository;
 
+	@Autowired
+	private ChatRepository chatRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(HvZApplication.class, args);
 		logger.info("Hello spring boot");
@@ -65,6 +68,9 @@ public class HvZApplication {
 
 			Player p1 = new Player("p1", u3, g1);
 			playerRepository.save(p1);
+
+			Chat c1 = new Chat("Hello chat message", true, false, true, g1);
+			chatRepository.save(c1);
 
 		};
 	}
