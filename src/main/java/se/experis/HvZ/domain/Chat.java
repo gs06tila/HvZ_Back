@@ -30,15 +30,21 @@ public class Chat {
     @Column(length = 255)
     private String time;
 
+    //-----------------------Relations-----------------------------------//
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gameId")
+    private Game game;
+
     // playerId (FK)
-    // gameId (FK)
     // SquadId (FK)
 
+    //-----------------------Constructors-----------------------------------//
 
     public Chat() {
     }
 
-    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, boolean isSquad) {
+    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, boolean isSquad, Game game) {
         this.message = message;
         this.isHumanGlobal = isHumanGlobal;
         this.isZombieGlobal = isZombieGlobal;
@@ -46,7 +52,10 @@ public class Chat {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.time = dtf.format(now);
+        this.game = game;
     }
+
+    //-----------------------Getters and Setters-----------------------------------//
 
     public Long getChatId() {
         return chatId;
@@ -88,4 +97,11 @@ public class Chat {
         return time;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 }
