@@ -75,15 +75,15 @@ public class HvZApplication {
 			gameRepository.save(g5);
 			//---------------------------------------Users-----------------------------------------//
 
-			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "PärTheDestroyer","ADMIN");
+			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2y$12$eQFb0pMyxe2Q3SHlSZkF4OVlhyKNNwnkwa.9hL8NHGhz3kptb.kUm", "kalle@kalle.se", "PärTheDestroyer","ADMIN");
 			gameUserRepository.save(u1);
-			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "TimTheDestroyer","USER");
+			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "$2y$12$eQFb0pMyxe2Q3SHlSZkF4OVlhyKNNwnkwa.9hL8NHGhz3kptb.kUm", "kalle@kalle.se", "Tim","USER");
 			gameUserRepository.save(u2);
-			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "EdisTheDestroyer","USER");
+			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOfrefwqFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "EdisTheDestroyer","USER");
 			gameUserRepository.save(u3);
-			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "MikaelTheDestroyer", "USER");
+			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "$2a$10$L/EmBmmnFqPg4dqwdqdwqi7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "MikaelTheDestroyer", "USER");
 			gameUserRepository.save(u4);
-			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "CraigTheDestroyer", "USER");
+			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5cggewwedq9qIOo8y/Sttty", "kalle@kalle.se", "CraigTheDestroyer", "USER");
 			gameUserRepository.save(u5);
 
 			//-------------------------------Players-------------------------------------//
@@ -103,6 +103,7 @@ public class HvZApplication {
 			Player p5 = new Player("p5bitecode", u5);
 			playerRepository.save(p5);
 
+			/*
 			Player p6 = new Player("p6bitecode", u1, g2);
 			playerRepository.save(p6);
 
@@ -117,6 +118,7 @@ public class HvZApplication {
 
 			Player p10 = new Player("p10bitecode", u5,g3);
 			playerRepository.save(p10);
+		  */
 
 
 
