@@ -36,15 +36,18 @@ public class Chat {
     @JoinColumn(name = "gameId")
     private Game game;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "squadId")
+    private Squad squad;
+
     // playerId (FK)
-    // SquadId (FK)
 
     //-----------------------Constructors-----------------------------------//
 
     public Chat() {
     }
 
-    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, boolean isSquad, Game game) {
+    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, boolean isSquad, Game game, Squad squad) {
         this.message = message;
         this.isHumanGlobal = isHumanGlobal;
         this.isZombieGlobal = isZombieGlobal;
@@ -53,6 +56,7 @@ public class Chat {
         LocalDateTime now = LocalDateTime.now();
         this.time = dtf.format(now);
         this.game = game;
+        this.squad = squad;
     }
 
     //-----------------------Getters and Setters-----------------------------------//
@@ -103,5 +107,13 @@ public class Chat {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public Squad getSquad() {
+        return squad;
+    }
+
+    public void setSquad(Squad squad) {
+        this.squad = squad;
     }
 }

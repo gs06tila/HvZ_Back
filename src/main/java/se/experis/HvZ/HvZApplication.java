@@ -79,7 +79,10 @@ public class HvZApplication {
 			Player p1 = new Player("p1", u3, g1);
 			playerRepository.save(p1);
 
-			Chat c1 = new Chat("Hello chat message", true, false, true, g1);
+			Squad s1 = new Squad("ZombieHunters", g1);
+			squadRepository.save(s1);
+
+			Chat c1 = new Chat("Hello chat message", true, false, true, g1, s1);
 			chatRepository.save(c1);
 
 			List<Game> lg1 = new ArrayList<Game>();
@@ -88,8 +91,7 @@ public class HvZApplication {
 			Mission m1 = new Mission("help", true, true, "kill all", d1, d2, 50.376381D, 51.235437D, lg1);
 			missionRepository.save(m1);
 
-			Squad s1 = new Squad("ZombieHunters", g1);
-			squadRepository.save(s1);
+
 
 			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2, s1);
 			squadCreateRepository.save(sc1);
