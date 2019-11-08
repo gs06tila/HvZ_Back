@@ -67,6 +67,8 @@ public class Game {
     @JsonIgnore
     private List<Squad> squads;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    @JsonIgnore
     private List<SquadCreate> squadCreate;
 
 
@@ -221,6 +223,7 @@ public class Game {
 
     public void setSquads(List<Squad> squads) {
         this.squads = squads;
+    }
 
     public List<SquadCreate> getSquadCreate() {
         return squadCreate;
