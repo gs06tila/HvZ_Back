@@ -216,7 +216,6 @@ public class Game {
 
     }
 
-
     public List<Squad> getSquads() {
         return squads;
     }
