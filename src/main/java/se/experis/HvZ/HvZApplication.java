@@ -74,16 +74,17 @@ public class HvZApplication {
 			Game g5 = new Game("Stockholm HvZ Game", "Completed", wallOfText, "Gröndalunds hvZ tisdag", 50.374652D, 51.938274D, 80.394856D, 81.384956D, d1, d2);
 			gameRepository.save(g5);
 			//---------------------------------------Users-----------------------------------------//
+			// Password: password
 
-			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2y$12$eQFb0pMyxe2Q3SHlSZkF4OVlhyKNNwnkwa.9hL8NHGhz3kptb.kUm", "kalle@kalle.se", "PärTheDestroyer","ADMIN");
+			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "PärTheDestroyer","ADMIN");
 			gameUserRepository.save(u1);
-			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "$2y$12$eQFb0pMyxe2Q3SHlSZkF4OVlhyKNNwnkwa.9hL8NHGhz3kptb.kUm", "kalle@kalle.se", "Tim","USER");
+			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "Tim","USER");
 			gameUserRepository.save(u2);
-			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOfrefwqFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "EdisTheDestroyer","USER");
+			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "EdisTheDestroyer","USER");
 			gameUserRepository.save(u3);
-			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "$2a$10$L/EmBmmnFqPg4dqwdqdwqi7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "MikaelTheDestroyer", "USER");
+			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "MikaelTheDestroyer", "USER");
 			gameUserRepository.save(u4);
-			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5cggewwedq9qIOo8y/Sttty", "kalle@kalle.se", "CraigTheDestroyer", "USER");
+			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "CraigTheDestroyer", "USER");
 			gameUserRepository.save(u5);
 
 			//-------------------------------Players-------------------------------------//

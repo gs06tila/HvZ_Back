@@ -23,7 +23,7 @@ public class GameUser {
     @Column(length=255)
     private String token;
 
-    @Column(length=255)
+    @Column(nullable = false)
     private String password;
 
     @Column(length=255)
