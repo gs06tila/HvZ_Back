@@ -216,7 +216,6 @@ public class Game {
 
     }
 
-
     public List<Squad> getSquads() {
         return squads;
     }
@@ -224,6 +223,7 @@ public class Game {
     public void setSquads(List<Squad> squads) {
         this.squads = squads;
     }
+
     public List<SquadCreate> getSquadCreate() {
         return squadCreate;
     }
