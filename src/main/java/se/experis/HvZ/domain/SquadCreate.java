@@ -33,7 +33,10 @@ public class SquadCreate {
     @JoinColumn(name = "gameId")
     private Game game;
 
-    // squadId (FK)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "squadId")
+    private Squad squad;
+
     // squadMemberId (FK)
 
     //-------------------Constructors-------------------//
@@ -95,5 +98,13 @@ public class SquadCreate {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public Squad getSquad() {
+        return squad;
+    }
+
+    public void setSquad(Squad squad) {
+        this.squad = squad;
     }
 }

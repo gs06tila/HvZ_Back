@@ -1,5 +1,6 @@
 package se.experis.HvZ.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -24,6 +25,10 @@ public class Squad {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gameId")
     private Game game;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "squad")
+    @JsonIgnore
+    private SquadCreate squadCreate;
 
     //-----------------------Constructors-----------------------------------//
 
@@ -64,5 +69,13 @@ public class Squad {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public SquadCreate getSquadCreate() {
+        return squadCreate;
+    }
+
+    public void setSquadCreate(SquadCreate squadCreate) {
+        this.squadCreate = squadCreate;
     }
 }
