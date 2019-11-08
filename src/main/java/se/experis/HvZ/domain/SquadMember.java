@@ -17,7 +17,9 @@ public class SquadMember {
     private String rank;
 
     //-----------Relations-----------------//
-    //squadId (FK)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "squadMember")
+    private SquadCreate squadCreate;
+
     //playerId (FK)
 
     //------------Constructors---------------//
@@ -26,8 +28,7 @@ public class SquadMember {
     public SquadMember() {
     }
 
-    public SquadMember(Long squadMemberId, String rank) {
-        SquadMemberId = squadMemberId;
+    public SquadMember(String rank) {
         this.rank = rank;
     }
 
@@ -44,5 +45,13 @@ public class SquadMember {
 
     public void setRank(String rank) {
         this.rank = rank;
+    }
+
+    public SquadCreate getSquadCreate() {
+        return squadCreate;
+    }
+
+    public void setSquadCreate(SquadCreate squadCreate) {
+        this.squadCreate = squadCreate;
     }
 }
