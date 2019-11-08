@@ -37,6 +37,14 @@ public class Player {
     @JsonIgnore
     private List<Chat> chats;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "killer")
+    @JsonIgnore
+    private List<Death> killers;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "victim")
+    @JsonIgnore
+    private Death victim;
+
 
     //------------------Constructors-------------------------------//
 
@@ -106,5 +114,21 @@ public class Player {
 
     public void setChats(List<Chat> chats) {
         this.chats = chats;
+    }
+
+    public List<Death> getKillers() {
+        return killers;
+    }
+
+    public void setKillers(List<Death> killers) {
+        this.killers = killers;
+    }
+
+    public Death getVictim() {
+        return victim;
+    }
+
+    public void setVictim(Death victim) {
+        this.victim = victim;
     }
 }

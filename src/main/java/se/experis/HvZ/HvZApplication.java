@@ -44,6 +44,9 @@ public class HvZApplication {
 	@Autowired
 	private SquadMemberRepository squadMemberRepository;
 
+	@Autowired
+	private DeathRepository deathRepository;
+
 
 
 	public static void main(String[] args) {
@@ -82,6 +85,9 @@ public class HvZApplication {
 			Player p1 = new Player("p1", u3, g1);
 			playerRepository.save(p1);
 
+			Player p2 = new Player("p2", u1, g2);
+			playerRepository.save(p2);
+
 			Squad s1 = new Squad("ZombieHunters", g1);
 			squadRepository.save(s1);
 
@@ -100,6 +106,9 @@ public class HvZApplication {
 
 			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2, sm1, s1);
 			squadCreateRepository.save(sc1);
+
+			Death de1 = new Death(81.384956D, 82.384956D, g1, p1, p2);
+			deathRepository.save(de1);
 		};
 	}
 

@@ -30,20 +30,26 @@ public class Death {
     @JoinColumn(name = "gameId")
     private Game game;
 
-    // killerId (FK)
-    // victimId (FK)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "killerId")
+    private Player killer;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PlayerId")
+    private Player victim;
 
     public Death() {
     }
 
-    public Death(Double lat, Double lng, Game game) {
+    public Death(Double lat, Double lng, Game game, Player killer, Player victim) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.timeOfDeath = timeOfDeath;
         this.lat = lat;
         this.lng = lng;
         this.game = game;
+        this.killer = killer;
+        this.victim = victim;
     }
 
 //-----------------GETTERS AND SETTERS------------------------------//
@@ -82,5 +88,21 @@ public class Death {
 
     public void setLng(Double lng) {
         this.lng = lng;
+    }
+
+    public Player getKiller() {
+        return killer;
+    }
+
+    public void setKiller(Player killer) {
+        this.killer = killer;
+    }
+
+    public Player getVictim() {
+        return victim;
+    }
+
+    public void setVictim(Player victim) {
+        this.victim = victim;
     }
 }
