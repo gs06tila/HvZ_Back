@@ -85,7 +85,7 @@ public class HvZApplication {
 			Squad s1 = new Squad("ZombieHunters", g1);
 			squadRepository.save(s1);
 
-			Chat c1 = new Chat("Hello chat message", true, false, true, g1, s1);
+			Chat c1 = new Chat("Hello chat message", true, false, true, g1, s1, p1);
 			chatRepository.save(c1);
 
 			List<Game> lg1 = new ArrayList<Game>();

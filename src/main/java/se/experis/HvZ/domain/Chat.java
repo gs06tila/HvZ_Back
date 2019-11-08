@@ -40,14 +40,16 @@ public class Chat {
     @JoinColumn(name = "squadId")
     private Squad squad;
 
-    // playerId (FK)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "playerId")
+    private Player player;
 
     //-----------------------Constructors-----------------------------------//
 
     public Chat() {
     }
 
-    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, boolean isSquad, Game game, Squad squad) {
+    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, boolean isSquad, Game game, Squad squad, Player player) {
         this.message = message;
         this.isHumanGlobal = isHumanGlobal;
         this.isZombieGlobal = isZombieGlobal;
@@ -115,5 +117,13 @@ public class Chat {
 
     public void setSquad(Squad squad) {
         this.squad = squad;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
