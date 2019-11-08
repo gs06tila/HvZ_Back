@@ -37,8 +37,9 @@ public class HvZApplication {
 
 	@Autowired
     private SquadRepository squadRepository;
+
 	@Autowired
-	private SquadCreate squadCreate;
+	private SquadCreateRepository squadCreateRepository;
 
 
 
@@ -90,7 +91,8 @@ public class HvZApplication {
 			Squad s1 = new Squad("ZombieHunters", g1);
 			squadRepository.save(s1);
 
-
+			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2);
+			squadCreateRepository.save(sc1);
 		};
 	}
 
