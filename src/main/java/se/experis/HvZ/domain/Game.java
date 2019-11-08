@@ -64,8 +64,12 @@ public class Game {
     private List<Mission> missions;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+
     @JsonIgnore
     private List<Squad> squads;
+
+    private List<SquadCreate> squadCreate;
+
 
     //-----------------Constructors------------------------------//
 
@@ -211,11 +215,20 @@ public class Game {
 
     }
 
+
     public List<Squad> getSquads() {
         return squads;
     }
 
     public void setSquads(List<Squad> squads) {
         this.squads = squads;
+
+    public List<SquadCreate> getSquadCreate() {
+        return squadCreate;
+    }
+
+    public void setSquadCreate(List<SquadCreate> squadCreate) {
+        this.squadCreate = squadCreate;
+
     }
 }

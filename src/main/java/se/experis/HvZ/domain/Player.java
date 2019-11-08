@@ -32,6 +32,8 @@ public class Player {
     @JoinColumn(name = "gameId")
     private Game game;
 
+    //------------------Constructors-------------------------------//
+
     public Player() {
     }
 
