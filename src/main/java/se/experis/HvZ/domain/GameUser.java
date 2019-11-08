@@ -1,6 +1,7 @@
 package se.experis.HvZ.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 import javax.persistence.*;
 
@@ -31,6 +32,9 @@ public class GameUser {
     @Column(length = 255, unique = true)
     private String userName;
 
+    @Column(length = 255)
+    private String role;
+
     //------------RELATIONS---------------------//
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "gameUser")
@@ -40,7 +44,7 @@ public class GameUser {
     public GameUser() {
     }
 
-    public GameUser(String firstName, String lastName, String token, String password, String email, String userName) {
+    public GameUser(String firstName, String lastName, String token, String password, String email, String userName, String role) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,6 +52,7 @@ public class GameUser {
         this.password = password;
         this.email = email;
         this.userName = userName;
+        this.role = role;
     }
 
 
@@ -108,6 +113,13 @@ public class GameUser {
 
     public String getUserName() { return userName; }
 
-    public void setUserName(String userName) {this.userName = userName;
+    public void setUserName(String userName) {this.userName = userName; }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

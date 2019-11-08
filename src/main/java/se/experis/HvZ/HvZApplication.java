@@ -75,15 +75,15 @@ public class HvZApplication {
 			gameRepository.save(g5);
 			//---------------------------------------Users-----------------------------------------//
 
-			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "Password", "kalle@kalle.se", "PärTheDestroyer");
+			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "PärTheDestroyer","ADMIN");
 			gameUserRepository.save(u1);
-			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "Password", "kalle@kalle.se", "TimTheDestroyer");
+			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "TimTheDestroyer","USER");
 			gameUserRepository.save(u2);
-			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "Password", "kalle@kalle.se", "EdisTheDestroyer");
+			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "EdisTheDestroyer","USER");
 			gameUserRepository.save(u3);
-			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "Password", "kalle@kalle.se", "MikaelTheDestroyer");
+			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "MikaelTheDestroyer", "USER");
 			gameUserRepository.save(u4);
-			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "Password", "kalle@kalle.se", "CraigTheDestroyer");
+			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "$2a$10$L/EmBmmnFqPg4i7f4RdcJupH5wOFEfeOnmtKZM5c9qIOo8y/Sttty", "kalle@kalle.se", "CraigTheDestroyer", "USER");
 			gameUserRepository.save(u5);
 
 			//-------------------------------Players-------------------------------------//
