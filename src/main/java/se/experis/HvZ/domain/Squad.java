@@ -19,15 +19,24 @@ public class Squad {
     @Column(name="is_human")
     private boolean isHuman;
 
-    //gameId (FK)
+    //-----------------------Relations-----------------------------------//
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gameId")
+    private Game game;
+
+    //-----------------------Constructors-----------------------------------//
 
     public Squad() {
     }
 
-    public Squad(String name) {
+    public Squad(String name, Game game) {
         this.name = name;
         this.isHuman = true;
+        this.game = game;
     }
+
+    //-----------------------Getters and Setters-----------------------------------//
 
     public Long getSquadId() {
         return squadId;
@@ -47,5 +56,13 @@ public class Squad {
 
     public void setHuman(boolean human) {
         isHuman = human;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }
