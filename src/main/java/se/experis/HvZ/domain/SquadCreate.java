@@ -37,7 +37,9 @@ public class SquadCreate {
     @JoinColumn(name = "squadId")
     private Squad squad;
 
-    // squadMemberId (FK)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="SquadMemberId")
+    private SquadMember squadMember;
 
     //-------------------Constructors-------------------//
 
@@ -45,6 +47,7 @@ public class SquadCreate {
     }
 
     public SquadCreate(Double lat, Double lng, Game game, Squad squad) {
+    public SquadCreate(Double lat, Double lng, Game game, SquadMember squadMember) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.startTime = dtf.format(now);
@@ -52,6 +55,7 @@ public class SquadCreate {
         this.lng = lng;
         this.game = game;
         this.squad = squad;
+        this.squadMember = squadMember;
     }
     //------------------------GetAndSet--------------//
 
@@ -107,5 +111,13 @@ public class SquadCreate {
 
     public void setSquad(Squad squad) {
         this.squad = squad;
+    }
+
+    public SquadMember getSquadMember() {
+        return squadMember;
+    }
+
+    public void setSquadMember(SquadMember squadMember) {
+        this.squadMember = squadMember;
     }
 }
