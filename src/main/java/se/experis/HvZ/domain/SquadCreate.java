@@ -44,13 +44,14 @@ public class SquadCreate {
     public SquadCreate() {
     }
 
-    public SquadCreate(Double lat, Double lng, Game game) {
+    public SquadCreate(Double lat, Double lng, Game game, Squad squad) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.startTime = dtf.format(now);
         this.lat = lat;
         this.lng = lng;
         this.game = game;
+        this.squad = squad;
     }
     //------------------------GetAndSet--------------//
 

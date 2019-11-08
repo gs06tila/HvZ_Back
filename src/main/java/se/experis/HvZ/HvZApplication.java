@@ -91,7 +91,7 @@ public class HvZApplication {
 			Squad s1 = new Squad("ZombieHunters", g1);
 			squadRepository.save(s1);
 
-			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2);
+			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2, s1);
 			squadCreateRepository.save(sc1);
 		};
 	}
