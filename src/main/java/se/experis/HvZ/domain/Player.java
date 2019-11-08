@@ -54,6 +54,13 @@ public class Player {
     public Player() {
     }
 
+    public Player(String biteCode, GameUser gameUser) {
+        this.isHuman = true;
+        this.isPatientZero = false;
+        this.biteCode = biteCode;
+        this.gameUser = gameUser;
+    }
+
     public Player(String biteCode, GameUser gameUser, Game game) {
         this.isHuman = true;
         this.isPatientZero = false;

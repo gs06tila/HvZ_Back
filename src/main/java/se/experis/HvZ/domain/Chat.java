@@ -24,9 +24,6 @@ public class Chat {
     @Column()
     private boolean isZombieGlobal;
 
-    @Column()
-    private boolean isSquad;
-
     @Column(length = 255)
     private String time;
 
@@ -49,11 +46,21 @@ public class Chat {
     public Chat() {
     }
 
-    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, boolean isSquad, Game game, Squad squad, Player player) {
+    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, Game game, Player player) {
         this.message = message;
         this.isHumanGlobal = isHumanGlobal;
         this.isZombieGlobal = isZombieGlobal;
-        this.isSquad = isSquad;
+        this.game = game;
+        this.player = player;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        this.time = dtf.format(now);
+    }
+
+    public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, Game game, Squad squad, Player player) {
+        this.message = message;
+        this.isHumanGlobal = isHumanGlobal;
+        this.isZombieGlobal = isZombieGlobal;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.time = dtf.format(now);
@@ -89,14 +96,6 @@ public class Chat {
 
     public void setZombieGlobal(boolean zombieGlobal) {
         isZombieGlobal = zombieGlobal;
-    }
-
-    public boolean isSquad() {
-        return isSquad;
-    }
-
-    public void setSquad(boolean squad) {
-        isSquad = squad;
     }
 
     public String getTime() {
