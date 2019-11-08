@@ -35,6 +35,9 @@ public class HvZApplication {
 	@Autowired
 	private ChatRepository chatRepository;
 
+	@Autowired
+    private SquadRepository squadRepository;
+
 
 
 	public static void main(String[] args) {
@@ -81,6 +84,11 @@ public class HvZApplication {
 			lg1.add(g2);
 			Mission m1 = new Mission("help", true, true, "kill all", d1, d2, 50.376381D, 51.235437D, lg1);
 			missionRepository.save(m1);
+
+			Squad s1 = new Squad("ZombieHunters", g1);
+			squadRepository.save(s1);
+
+
 		};
 	}
 
