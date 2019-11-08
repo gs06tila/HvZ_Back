@@ -35,6 +35,10 @@ public class Squad {
     @JsonIgnore
     private List<Chat> chats;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "squad")
+    @JsonIgnore
+    private List<SquadMember> squadMembers;
+
     //-----------------------Constructors-----------------------------------//
 
     public Squad() {
@@ -90,5 +94,13 @@ public class Squad {
 
     public void setChats(List<Chat> chats) {
         this.chats = chats;
+    }
+
+    public List<SquadMember> getSquadMembers() {
+        return squadMembers;
+    }
+
+    public void setSquadMembers(List<SquadMember> squadMembers) {
+        this.squadMembers = squadMembers;
     }
 }

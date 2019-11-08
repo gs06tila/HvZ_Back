@@ -3,6 +3,7 @@ package se.experis.HvZ.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="squadMember")
@@ -17,8 +18,13 @@ public class SquadMember {
     private String rank;
 
     //-----------Relations-----------------//
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "squadMember")
     private SquadCreate squadCreate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="SquadId")
+    private Squad squad;
 
     //playerId (FK)
 
@@ -28,8 +34,9 @@ public class SquadMember {
     public SquadMember() {
     }
 
-    public SquadMember(String rank) {
+    public SquadMember(String rank, Squad squad) {
         this.rank = rank;
+        this.squad = squad;
     }
 
     //--------------GetAndSet----------------------//
@@ -53,5 +60,13 @@ public class SquadMember {
 
     public void setSquadCreate(SquadCreate squadCreate) {
         this.squadCreate = squadCreate;
+    }
+
+    public Squad getSquads() {
+        return squad;
+    }
+
+    public void setSquads(Squad squads) {
+        this.squad = squads;
     }
 }
