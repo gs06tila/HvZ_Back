@@ -16,6 +16,33 @@ public class SquadMember {
     @Column(length=255)
     private String rank;
 
+    //-----------Relations-----------------//
     //squadId (FK)
     //playerId (FK)
+
+    //------------Constructors---------------//
+
+
+    public SquadMember() {
+    }
+
+    public SquadMember(Long squadMemberId, String rank) {
+        SquadMemberId = squadMemberId;
+        this.rank = rank;
+    }
+
+    //--------------GetAndSet----------------------//
+
+
+    public Long getSquadMemberId() {
+        return SquadMemberId;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
 }
