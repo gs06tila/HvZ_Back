@@ -1,5 +1,6 @@
 package se.experis.HvZ.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -26,7 +27,10 @@ public class SquadMember {
     @JoinColumn(name="SquadId")
     private Squad squad;
 
-    //playerId (FK)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="playerId")
+    @JsonIgnore
+    private Player player;
 
     //------------Constructors---------------//
 
@@ -34,9 +38,10 @@ public class SquadMember {
     public SquadMember() {
     }
 
-    public SquadMember(String rank, Squad squad) {
+    public SquadMember(String rank, Squad squad, Player player) {
         this.rank = rank;
         this.squad = squad;
+        this.player = player;
     }
 
     //--------------GetAndSet----------------------//
@@ -62,11 +67,20 @@ public class SquadMember {
         this.squadCreate = squadCreate;
     }
 
-    public Squad getSquads() {
+    public Squad getSquad() {
         return squad;
     }
 
-    public void setSquads(Squad squads) {
-        this.squad = squads;
+    public void setSquad(Squad squad) {
+        this.squad = squad;
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
 }

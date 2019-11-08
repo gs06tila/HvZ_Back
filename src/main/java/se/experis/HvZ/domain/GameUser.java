@@ -31,6 +31,7 @@ public class GameUser {
     private String userName;
 
     //------------RELATIONS---------------------//
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "gameUser")
     private Player player;
 

@@ -45,6 +45,9 @@ public class Player {
     @JsonIgnore
     private Death victim;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "player")
+    private SquadMember squadMember;
+
 
     //------------------Constructors-------------------------------//
 
@@ -130,5 +133,13 @@ public class Player {
 
     public void setVictim(Death victim) {
         this.victim = victim;
+    }
+
+    public SquadMember getSquadMember() {
+        return squadMember;
+    }
+
+    public void setSquadMember(SquadMember squadMember) {
+        this.squadMember = squadMember;
     }
 }

@@ -101,7 +101,7 @@ public class HvZApplication {
 			missionRepository.save(m1);
 
 
-			SquadMember sm1 = new SquadMember("leader", s1);
+			SquadMember sm1 = new SquadMember("leader", s1, p1);
 			squadMemberRepository.save(sm1);
 
 			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2, sm1, s1);
