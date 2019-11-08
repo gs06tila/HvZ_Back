@@ -9,7 +9,8 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class GameUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private Long userId;
 
     @Column(length=255)
@@ -27,7 +28,7 @@ public class GameUser {
     @Column(length=255)
     private String email;
 
-    @Column(length = 255)
+    @Column(length = 255, unique = true)
     private String userName;
 
     //------------RELATIONS---------------------//
