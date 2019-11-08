@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "squad")
@@ -29,6 +30,10 @@ public class Squad {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "squad")
     @JsonIgnore
     private SquadCreate squadCreate;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "squad")
+    @JsonIgnore
+    private List<Chat> chats;
 
     //-----------------------Constructors-----------------------------------//
 
@@ -77,5 +82,13 @@ public class Squad {
 
     public void setSquadCreate(SquadCreate squadCreate) {
         this.squadCreate = squadCreate;
+    }
+
+    public List<Chat> getChats() {
+        return chats;
+    }
+
+    public void setChats(List<Chat> chats) {
+        this.chats = chats;
     }
 }
