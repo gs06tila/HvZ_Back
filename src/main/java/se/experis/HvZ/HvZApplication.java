@@ -98,9 +98,7 @@ public class HvZApplication {
 			SquadMember sm1 = new SquadMember("leader");
 			squadMemberRepository.save(sm1);
 
-			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2, sm1);
-
-			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2, s1);
+			SquadCreate sc1 = new SquadCreate(57.234356, 34.236576, g2, sm1, s1);
 			squadCreateRepository.save(sc1);
 		};
 	}

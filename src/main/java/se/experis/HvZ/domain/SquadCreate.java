@@ -46,8 +46,8 @@ public class SquadCreate {
     public SquadCreate() {
     }
 
-    public SquadCreate(Double lat, Double lng, Game game, Squad squad) {
-    public SquadCreate(Double lat, Double lng, Game game, SquadMember squadMember) {
+
+    public SquadCreate(Double lat, Double lng, Game game, SquadMember squadMember, Squad squad) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.startTime = dtf.format(now);
