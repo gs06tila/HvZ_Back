@@ -59,6 +59,9 @@ public class Game {
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
     private List<Mission> missions;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    private List<SquadCreate> squadCreate;
+
     //-----------------Constructors------------------------------//
 
     public Game() {
@@ -201,5 +204,13 @@ public class Game {
     public void setMissions(List<Mission> missions) {
         this.missions = missions;
 
+    }
+
+    public List<SquadCreate> getSquadCreate() {
+        return squadCreate;
+    }
+
+    public void setSquadCreate(List<SquadCreate> squadCreate) {
+        this.squadCreate = squadCreate;
     }
 }

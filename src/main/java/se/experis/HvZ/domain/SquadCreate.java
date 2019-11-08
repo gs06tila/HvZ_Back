@@ -28,21 +28,28 @@ public class SquadCreate {
     @Column(precision=9, scale=6)
     private Double lng;
 
-    // gameId (FK)
+    //-----------------Relations------------------------//
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gameId")
+    private Game game;
+
     // squadId (FK)
     // squadMemberId (FK)
 
+    //-------------------Constructors-------------------//
 
     public SquadCreate() {
     }
 
-    public SquadCreate(Double lat, Double lng) {
+    public SquadCreate(Double lat, Double lng, Game game) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.startTime = dtf.format(now);
         this.lat = lat;
         this.lng = lng;
+        this.game = game;
     }
+    //------------------------GetAndSet--------------//
 
     public Long getSquadCreateId() {
         return squadCreateId;
@@ -80,5 +87,13 @@ public class SquadCreate {
 
     public void setLng(Double lng) {
         this.lng = lng;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }
