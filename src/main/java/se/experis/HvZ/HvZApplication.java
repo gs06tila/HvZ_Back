@@ -37,6 +37,8 @@ public class HvZApplication {
 
 	@Autowired
     private SquadRepository squadRepository;
+	@Autowired
+	private SquadCreate squadCreate;
 
 
 
