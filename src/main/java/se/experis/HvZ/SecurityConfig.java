@@ -3,11 +3,13 @@ package se.experis.HvZ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -28,16 +30,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
-
-
-   /* @Override
+    // We stipulate that the POST method request to the /login endpoint is allowed without authentication
+    // and that requests to all other endpoints require authentication.
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // Add this row to allow access to all endpoints
-        http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
-
-
+        http.csrf().disable().cors().and().authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/login").permitAll()
+                .and()
+                // Filter for the api/login request
+                .addFilterBefore(new LoginFilter("/login",
+                        authenticationManager()),
+                        UsernamePasswordAuthenticationFilter.class)
+                // Filter for other requests to check JWT in header
+                .addFilterBefore(new AuthenticationFilter(),
+                        UsernamePasswordAuthenticationFilter.class);
     }
 
+    //
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         UrlBasedCorsConfigurationSource source =
@@ -51,7 +60,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         source.registerCorsConfiguration("/**", config);
         return source;
-    }*/
+    }
+   /* @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // Add this row to allow access to all endpoints
+        http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
+
+
+    }
+
+*/
 
 
 }

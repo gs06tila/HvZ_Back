@@ -12,8 +12,13 @@ import java.util.Date;
 import static java.util.Collections.emptyList;
 
 public class AuthenticationService {
+    // Defines the expiration time of the token in milliseconds
     static final long EXPIRATIONTIME = 864_000_00; // 1 day in milliseconds
+
+    // Define an algorithm-specific signing key that's used to digitally sign the JWT
     static final String SIGNINGKEY = "SecretKey";
+
+    // Defines the prefix of the token, and the Bearer schema is typically used
     static final String PREFIX = "Bearer";
 
     // Add token to Authorization header
