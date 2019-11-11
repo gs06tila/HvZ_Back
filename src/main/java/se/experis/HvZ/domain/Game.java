@@ -2,10 +2,12 @@ package se.experis.HvZ.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
 
 @Entity
 @Table(name="game")
