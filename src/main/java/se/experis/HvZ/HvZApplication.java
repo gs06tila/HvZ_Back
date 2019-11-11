@@ -145,22 +145,22 @@ public class HvZApplication {
 			chatRepository.save(c1);
 
 			Chat c2 = new Chat("Help", true, false,  g1, s1, p2);
-			chatRepository.save(c1);
+			chatRepository.save(c2);
 
 			Chat c3 = new Chat("No", true, false, g1, s1, p3);
-			chatRepository.save(c1);
+			chatRepository.save(c3);
 
 			Chat c4 = new Chat("Test123", true, false,  g1, p1);
-			chatRepository.save(c1);
+			chatRepository.save(c4);
 
 			Chat c5 = new Chat("zombies at mission 2", true, false,  g1, p2);
-			chatRepository.save(c1);
+			chatRepository.save(c5);
 
 			Chat c6 = new Chat("Rip", true, false,  g1, p3);
-			chatRepository.save(c1);
+			chatRepository.save(c6);
 
 			Chat c7 = new Chat("Anyone alive?", true, false,  g1, p4);
-			chatRepository.save(c1);
+			chatRepository.save(c7);
 
 			//----------------------------------Mission-------------------------------------------//
 
