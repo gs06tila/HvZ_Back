@@ -36,7 +36,7 @@ public class HvZApplication {
 	CommandLineRunner runner() {
 	    // Heroku
 		return args -> {
-			System.out.println("hej");
+
 		};
 	}
 
