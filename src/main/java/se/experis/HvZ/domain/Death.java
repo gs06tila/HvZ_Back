@@ -39,12 +39,12 @@ public class Death {
     private Player victim;
 
     public Death() {
+        //System.out.println(setDeathTime() + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        this.timeOfDeath = getDeathTime();
     }
 
     public Death(Double lat, Double lng, Game game, Player killer, Player victim) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        this.timeOfDeath = timeOfDeath;
+        this.timeOfDeath = getDeathTime();
         this.lat = lat;
         this.lng = lng;
         this.game = game;
@@ -53,6 +53,11 @@ public class Death {
     }
 
 //-----------------GETTERS AND SETTERS------------------------------//
+    private String getDeathTime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        return dtf.format(now);
+    }
 
     public Game getGame() {
         return game;
