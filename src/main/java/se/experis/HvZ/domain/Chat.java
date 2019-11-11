@@ -66,6 +66,7 @@ public class Chat {
         this.time = dtf.format(now);
         this.game = game;
         this.squad = squad;
+        this.player = player;
     }
 
     //-----------------------Getters and Setters-----------------------------------//
