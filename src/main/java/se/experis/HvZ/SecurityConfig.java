@@ -31,13 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    @Override
+   /* @Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
                 .antMatchers("/api/games");
     }
-
+*/
 
 
     // We stipulate that the POST method request to the /login endpoint is allowed without authentication
