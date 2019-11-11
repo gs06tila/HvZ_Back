@@ -1,7 +1,6 @@
 package se.experis.HvZ.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 import javax.persistence.*;
 
