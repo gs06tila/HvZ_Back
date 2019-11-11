@@ -2,6 +2,8 @@ package se.experis.HvZ.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,11 +15,11 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long playerId;
 
-    @Column()
-    private boolean isHuman;
+    @JsonProperty
+    private boolean human = true;
 
-    @Column()
-    private boolean isPatientZero;
+    @JsonProperty
+    private boolean patientZero = false;
 
     @Column(length=255)
     private String biteCode;
@@ -55,15 +57,11 @@ public class Player {
     }
 
     public Player(String biteCode, GameUser gameUser) {
-        this.isHuman = true;
-        this.isPatientZero = false;
         this.biteCode = biteCode;
         this.gameUser = gameUser;
     }
 
     public Player(String biteCode, GameUser gameUser, Game game) {
-        this.isHuman = true;
-        this.isPatientZero = false;
         this.biteCode = biteCode;
         this.gameUser = gameUser;
         this.game = game;
@@ -94,20 +92,20 @@ public class Player {
         return playerId;
     }
 
-    public boolean isHuman() {
-        return isHuman;
+    public boolean getHuman() {
+        return human;
     }
 
     public void setHuman(boolean human) {
-        isHuman = human;
+        this.human = human;
     }
 
-    public boolean isPatientZero() {
-        return isPatientZero;
+    public boolean getPatientZero() {
+        return patientZero;
     }
 
     public void setPatientZero(boolean patientZero) {
-        isPatientZero = patientZero;
+        this.patientZero = patientZero;
     }
 
     public String getBiteCode() {

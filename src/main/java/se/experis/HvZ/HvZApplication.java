@@ -86,6 +86,8 @@ public class HvZApplication {
 			gameUserRepository.save(u4);
 			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "CraigTheDestroyer", "USER");
 			gameUserRepository.save(u5);
+			GameUser u6 = new GameUser("postmanTest", "ttttttttt", "Token", "$2a$10$wZQmZulYBewqdfwfwiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmanTest", "USER");
+			gameUserRepository.save(u6);
 
 			//-------------------------------Players-------------------------------------//
 
