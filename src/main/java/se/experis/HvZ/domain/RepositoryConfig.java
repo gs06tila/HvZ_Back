@@ -8,6 +8,6 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 public class RepositoryConfig  extends RepositoryRestConfigurerAdapter {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.exposeIdsFor(Game.class, Mission.class);
+        config.exposeIdsFor(Game.class, Mission.class, Squad.class);
     }
 }
