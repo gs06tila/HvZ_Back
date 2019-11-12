@@ -76,7 +76,7 @@ public class HvZApplication {
 			//---------------------------------------Users-----------------------------------------//
 			// Password: password
 
-			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "PärTheDestroyer","ADMIN");
+			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "Pär","ADMIN");
 			gameUserRepository.save(u1);
 			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "Tim","USER");
 			gameUserRepository.save(u2);
@@ -89,7 +89,7 @@ public class HvZApplication {
 			GameUser u6 = new GameUser("postmanTest", "ttttttttt", "Token", "$2a$10$wZQmZulYBewqdfwfwiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmanTest", "USER");
 			gameUserRepository.save(u6);
 
-			//-------------------------------Players-------------------------------------//
+			//-------------------------------Players-----------------------------------------------//
 
 			Player p1 = new Player("p1bitecode", u1, g1);
 			playerRepository.save(p1);
@@ -131,16 +131,16 @@ public class HvZApplication {
 			squadRepository.save(s1);
 
 			Squad s2 = new Squad("Killers", g1);
-			squadRepository.save(s1);
+			squadRepository.save(s2);
 
 			Squad s3 = new Squad("Cowards", g1);
-			squadRepository.save(s1);
+			squadRepository.save(s3);
 
 			Squad s4 = new Squad("YoMamma", g4);
-			squadRepository.save(s1);
+			squadRepository.save(s4);
 
 			Squad s5 = new Squad("Yopapa", g4);
-			squadRepository.save(s1);
+			squadRepository.save(s5);
 			//-----------------------------------Chat---------------------------------------------//
 
 			Chat c1 = new Chat("Hello chat message", true, false, g1, s1, p1);
@@ -169,8 +169,19 @@ public class HvZApplication {
 			List<Game> lg1 = new ArrayList<Game>();
 			lg1.add(g1);
 			lg1.add(g2);
+			lg1.add(g3);
+			lg1.add(g4);
+			lg1.add(g5);
+
 			Mission m1 = new Mission("help", true, true, "kill all", d1, d2, 50.376381D, 51.235437D, lg1);
 			missionRepository.save(m1);
+
+			Mission m2 = new Mission("mission2", true, true, "Run for your life", d1, d2, 50.376381D, 51.235437D, lg1);
+			missionRepository.save(m2);
+
+			Mission m3 = new Mission("Zombies rules yay :D", true, true, "Kill all the humans", d1, d2, 50.376381D, 51.235437D, lg1);
+			missionRepository.save(m3);
+
 
 			//--------------------------------Squadmembers---------------------------------------//
 
@@ -183,15 +194,28 @@ public class HvZApplication {
 			SquadMember sm3 = new SquadMember("noob2", s1, p3);
 			squadMemberRepository.save(sm3);
 
+			SquadMember sm4 = new SquadMember("TheSupremeLeader", s2, p4);
+			squadMemberRepository.save(sm4);
+
+			SquadMember sm5 = new SquadMember("potatoFarmer", s2, p5);
+			squadMemberRepository.save(sm5);
+
 			//------------------------------SquadCreate------------------------------------------//
 
 			SquadCreate sc1 = new SquadCreate(57.234356D, 34.236576D, g1, sm1, s1);
 			squadCreateRepository.save(sc1);
 
+			SquadCreate sc2 = new SquadCreate(57.234356D, 34.236576D, g1, sm4, s2);
+			squadCreateRepository.save(sc2);
+
 			//--------------------------------Deaths-------------------------------------------//
 
 			Death de1 = new Death(81.384956D, 82.384956D, g1, p1, p2);
 			deathRepository.save(de1);
+
+			Death de2 = new Death(81.445566D, 82.112233D, g1, p1, p3);
+			deathRepository.save(de2);
+
 		};
 	}
 
