@@ -48,7 +48,6 @@ public class HvZApplication {
 	private DeathRepository deathRepository;
 
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(HvZApplication.class, args);
 		logger.info("Hello spring boot");
