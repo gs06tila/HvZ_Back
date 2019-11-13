@@ -44,13 +44,11 @@ public class SquadCreate {
     //-------------------Constructors-------------------//
 
     public SquadCreate() {
+        this.startTime = getSquadCreateTime();
     }
 
 
     public SquadCreate(Double lat, Double lng, Game game, SquadMember squadMember, Squad squad) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        this.startTime = dtf.format(now);
         this.lat = lat;
         this.lng = lng;
         this.game = game;
@@ -58,6 +56,12 @@ public class SquadCreate {
         this.squadMember = squadMember;
     }
     //------------------------GetAndSet--------------//
+
+    private String getSquadCreateTime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        return dtf.format(now);
+    }
 
     public Long getSquadCreateId() {
         return squadCreateId;
