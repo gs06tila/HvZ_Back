@@ -44,6 +44,7 @@ public class Chat {
     //-----------------------Constructors-----------------------------------//
 
     public Chat() {
+        this.time = getChatTime();
     }
 
     public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, Game game, Player player) {
@@ -52,24 +53,24 @@ public class Chat {
         this.isZombieGlobal = isZombieGlobal;
         this.game = game;
         this.player = player;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        this.time = dtf.format(now);
     }
 
     public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, Game game, Squad squad, Player player) {
         this.message = message;
         this.isHumanGlobal = isHumanGlobal;
         this.isZombieGlobal = isZombieGlobal;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        this.time = dtf.format(now);
         this.game = game;
         this.squad = squad;
         this.player = player;
     }
 
     //-----------------------Getters and Setters-----------------------------------//
+
+    private String getChatTime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        return dtf.format(now);
+    }
 
     public Long getChatId() {
         return chatId;
