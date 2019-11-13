@@ -41,7 +41,7 @@ public class SquadCreate {
     @JoinColumn(name="SquadMemberId")
     private SquadMember squadMember;
 
-    //-------------------Constructors-------------------//
+    //-------------------Constructors------------------------------//
 
     public SquadCreate() {
         this.startTime = getSquadCreateTime();
@@ -56,7 +56,7 @@ public class SquadCreate {
         this.squadMember = squadMember;
         this.startTime = getSquadCreateTime();
     }
-    //------------------------GetAndSet--------------//
+    //------------------------GetAndSet----------------------------//
 
     private String getSquadCreateTime() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

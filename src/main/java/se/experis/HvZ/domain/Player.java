@@ -97,7 +97,9 @@ public class Player {
     }
 
     public void setHuman(boolean human) {
+        System.out.println("In setHuman--------------------------------------------------------");
         this.human = human;
+        System.out.println("this.human: " + this.human);
     }
 
     public boolean getPatientZero() {
@@ -147,4 +149,5 @@ public class Player {
     public void setSquadMember(SquadMember squadMember) {
         this.squadMember = squadMember;
     }
+
 }

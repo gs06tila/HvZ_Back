@@ -39,7 +39,6 @@ public class Death {
     private Player victim;
 
     public Death() {
-        //System.out.println(setDeathTime() + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         this.timeOfDeath = getDeathTime();
     }
 
@@ -50,9 +49,11 @@ public class Death {
         this.game = game;
         this.killer = killer;
         this.victim = victim;
+
     }
 
 //-----------------GETTERS AND SETTERS------------------------------//
+
     private String getDeathTime() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
@@ -110,4 +111,12 @@ public class Death {
     public void setVictim(Player victim) {
         this.victim = victim;
     }
+
+    /*
+    public void setVictimToZombie(Player victim) {
+        System.out.println("setHumanToVictim --------------------------------------------------------");
+        System.out.println("Victim id : " + victim.getPlayerId());
+        victim.setHuman(false);
+        //this.victim.setVictim(false);
+    }*/
 }

@@ -48,6 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
 
         http.csrf().disable().cors().and().authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/api/games").permitAll()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                     .anyRequest().authenticated()
                     .and()
