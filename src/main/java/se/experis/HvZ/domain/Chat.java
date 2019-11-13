@@ -53,6 +53,7 @@ public class Chat {
         this.isZombieGlobal = isZombieGlobal;
         this.game = game;
         this.player = player;
+        this.time = getChatTime();
     }
 
     public Chat(String message, boolean isHumanGlobal, boolean isZombieGlobal, Game game, Squad squad, Player player) {
@@ -62,6 +63,7 @@ public class Chat {
         this.game = game;
         this.squad = squad;
         this.player = player;
+        this.time = getChatTime();
     }
 
     //-----------------------Getters and Setters-----------------------------------//

@@ -54,6 +54,7 @@ public class SquadCreate {
         this.game = game;
         this.squad = squad;
         this.squadMember = squadMember;
+        this.startTime = getSquadCreateTime();
     }
     //------------------------GetAndSet--------------//
 
