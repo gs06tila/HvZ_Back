@@ -19,7 +19,7 @@ public class Squad {
     private String name;
 
     @Column(name="is_human")
-    private boolean isHuman;
+    private boolean isHuman = true;
 
     //-----------------------Relations-----------------------------------//
 
@@ -46,7 +46,6 @@ public class Squad {
 
     public Squad(String name, Game game) {
         this.name = name;
-        this.isHuman = true;
         this.game = game;
     }
 
