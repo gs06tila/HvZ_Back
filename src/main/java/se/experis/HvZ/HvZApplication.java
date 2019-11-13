@@ -88,6 +88,10 @@ public class HvZApplication {
 			gameUserRepository.save(u5);
 			GameUser u6 = new GameUser("postmanTest", "ttttttttt", "Token", "$2a$10$wZQmZulYBewqdfwfwiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmanTest", "USER");
 			gameUserRepository.save(u6);
+			GameUser u7 = new GameUser("Postmantest1", "ttttttttt", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmantest1", "USER");
+			gameUserRepository.save(u7);
+			GameUser u8 = new GameUser("postmanTest3", "ttttttttt", "Token", "$2a$10$wZQmZulYBewqdfwfwiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmantest3", "USER");
+			gameUserRepository.save(u8);
 
 			//-------------------------------Players-----------------------------------------------//
 
@@ -106,22 +110,14 @@ public class HvZApplication {
 			Player p5 = new Player("p5bitecode", u5);
 			playerRepository.save(p5);
 
-			/*
-			Player p6 = new Player("p6bitecode", u1, g2);
+			Player p6 = new Player("p6bitecode", u6, g1);
 			playerRepository.save(p6);
 
-			Player p7 = new Player("p7bitecode", u2, g2);
+			Player p7 = new Player("p7bitecode", u7, g1);
 			playerRepository.save(p7);
 
-			Player p8 = new Player("p8bitecode", u3, g2);
+			Player p8 = new Player("p8bitecode", u8, g1);
 			playerRepository.save(p8);
-
-			Player p9 = new Player("p9bitecode", u4, g4);
-			playerRepository.save(p9);
-
-			Player p10 = new Player("p10bitecode", u5,g3);
-			playerRepository.save(p10);
-		  */
 
 
 
