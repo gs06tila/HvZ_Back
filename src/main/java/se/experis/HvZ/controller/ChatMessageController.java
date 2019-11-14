@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import se.experis.HvZ.model.ChatMessage;
 
 @Controller
-public class ChatController {
+public class ChatMessageController {
 
     @MessageMapping("/chat.register")
     @SendTo("/topic/public")
@@ -17,5 +17,9 @@ public class ChatController {
         return chatMessage;
     }
 
-    public ChatMessage
+    @MessageMapping("/chat.send")
+    @SendTo("/topic/public")
+    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+        return chatMessage;
+    }
 }
