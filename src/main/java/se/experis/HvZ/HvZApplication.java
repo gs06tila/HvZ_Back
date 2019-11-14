@@ -62,7 +62,7 @@ public class HvZApplication {
 			Date d2 = new Date(119, 6, 19);
 		//------------------------------------GAME-----------------------------------------------------//
 
-			Game g1 = new Game("Linköping HvZ Game", "Registration", wallOfText, "Linköping Zombie Killers game Viagraparken", 50.374652D, 51.938274D, 80.394856D, 81.384956D, d1, d2);
+			Game g1 = new Game("Linköping HvZ Game", "Registration", wallOfText, "Linköping Zombie Killers game Viagraparken", 56.87111D, 56.87999D, 14.80111D, 14.80999D, d1, d2);
 			gameRepository.save(g1);
 			Game g2 = new Game("Karlskrona HvZ Game", "In Progress", wallOfText, "campus gräsvik hvz lördag den 19/11", 50.374652D, 51.938274D, 80.394856D, 81.384956D, d1, d2);
 			gameRepository.save(g2);
@@ -168,13 +168,13 @@ public class HvZApplication {
 			lg1.add(g4);
 			lg1.add(g5);
 
-			Mission m1 = new Mission("help", true, true, "kill all", d1, d2, 50.376381D, 51.235437D, lg1);
+			Mission m1 = new Mission("help", true, true, "kill all", d1, d2, 56.87455D, 14.80911D, lg1);
 			missionRepository.save(m1);
 
-			Mission m2 = new Mission("mission2", true, true, "Run for your life", d1, d2, 50.376381D, 51.235437D, lg1);
+			Mission m2 = new Mission("mission2", true, true, "Run for your life", d1, d2, 56.87233D, 14.80811D, lg1);
 			missionRepository.save(m2);
 
-			Mission m3 = new Mission("Zombies rules yay :D", true, true, "Kill all the humans", d1, d2, 50.376381D, 51.235437D, lg1);
+			Mission m3 = new Mission("Zombies rules yay :D", true, true, "Kill all the humans", d1, d2, 56.87122D, 14.80722D, lg1);
 			missionRepository.save(m3);
 
 
@@ -205,10 +205,10 @@ public class HvZApplication {
 
 			//--------------------------------Deaths-------------------------------------------//
 
-			Death de1 = new Death(81.384956D, 82.384956D, g1, p1, p2);
+			Death de1 = new Death(56.87677D, 14.80906D, g1, p1, p2);
 			deathRepository.save(de1);
 
-			Death de2 = new Death(81.445566D, 82.112233D, g1, p1, p3);
+			Death de2 = new Death(56.87687D, 14.80926D, g1, p1, p3);
 			deathRepository.save(de2);
 
 		};
