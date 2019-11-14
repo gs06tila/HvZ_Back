@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import se.experis.HvZ.domain.GameUserRepository;
 import se.experis.HvZ.domain.GameUser;
+import se.experis.HvZ.domain.GameUserRepository;
 
 @Service
 public class GameUserDetailServiceImpl implements UserDetailsService {
