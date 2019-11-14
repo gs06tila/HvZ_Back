@@ -29,16 +29,10 @@ public class Game {
     private String shortDescription;
 
     @Column(precision=9, scale=6)
-    private Double longX;
-
-    @Column(precision=9, scale=6)
-    private Double longY;
+    private Double lng;
 
     @Column(precision=8, scale=6)
-    private Double latX;
-
-    @Column(precision=8, scale=6)
-    private Double latY;
+    private Double lat;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
@@ -77,16 +71,14 @@ public class Game {
     public Game() {
     }
 
-    public Game(String name, String state, String longDescription, String shortDescription, Double longX, Double longY, Double latX, Double latY, Date startDate, Date endDate) {
+    public Game(String name, String state, String longDescription, String shortDescription, Double lng, Double lat, Date startDate, Date endDate) {
         super();
         this.name = name;
         this.state = state;
         this.longDescription = longDescription;
         this.shortDescription = shortDescription;
-        this.longX = longX;
-        this.longY = longY;
-        this.latX = latX;
-        this.latY = latY;
+        this.lng = lng;
+        this.lat = lat;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -136,35 +128,19 @@ public class Game {
     }
 
     public Double getLongX() {
-        return longX;
+        return lng;
     }
 
-    public void setLongX(Double longX) {
-        this.longX = longX;
-    }
-
-    public Double getLongY() {
-        return longY;
-    }
-
-    public void setLongY(Double longY) {
-        this.longY = longY;
+    public void setLongX(Double lng) {
+        this.lng = lng;
     }
 
     public Double getLatX() {
-        return latX;
+        return lat;
     }
 
-    public void setLatX(Double latX) {
-        this.latX = latX;
-    }
-
-    public Double getLatY() {
-        return latY;
-    }
-
-    public void setLatY(Double latY) {
-        this.latY = latY;
+    public void setLatX(Double lat) {
+        this.lat = lat;
     }
 
     public Date getStartDate() {
