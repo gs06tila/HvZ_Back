@@ -88,7 +88,7 @@ public class GameUser {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = hash(password);
     }
 
     public String getEmail() {
