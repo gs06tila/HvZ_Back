@@ -46,11 +46,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // Add this row to allow access to all endpoints
         http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
-
-      /*  http.csrf().disable().cors().and().authorizeRequests()
+    /*
+       http.csrf().disable().cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/games").permitAll()
                 .antMatchers("/register").permitAll()
-                .antMatchers("/confirm").permitAll();
+                .antMatchers("/confirm").permitAll()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                     .anyRequest().authenticated()
                     .and()
@@ -62,7 +62,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .addFilterBefore(new AuthenticationFilter(),
                         UsernamePasswordAuthenticationFilter.class);
 
-       */
+
+
+     */
 
     }
 

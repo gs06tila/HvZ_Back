@@ -1,5 +1,7 @@
 package se.experis.HvZ.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,12 @@ public class GameUserAccountController {
     @RequestMapping(value="/register", method = RequestMethod.GET)
     public ModelAndView displayRegistration(ModelAndView modelAndView, GameUser user)
     {
+        System.out.println("--------Debugger------/register get---------------------------");
+        System.out.println(user.getFirstName());
+        System.out.println(user.getLastName());
+        System.out.println(user.getPassword());
+        System.out.println(user.getEmail());
+
         modelAndView.addObject("user", user);
         modelAndView.setViewName("register");
         return modelAndView;
@@ -36,6 +44,11 @@ public class GameUserAccountController {
     @RequestMapping(value="/register", method = RequestMethod.POST)
     public ModelAndView registerUser(ModelAndView modelAndView, GameUser user)
     {
+        System.out.println("--------Debugger------/register post---------------------------");
+        System.out.println(user.getFirstName());
+        System.out.println(user.getLastName());
+        System.out.println(user.getPassword());
+        System.out.println(user.getEmail());
 
         GameUser existingUser = gameuserRepository.findByEmailIgnoreCase(user.getEmail());
         if(existingUser != null)
@@ -87,29 +100,5 @@ public class GameUserAccountController {
         }
 
         return modelAndView;
-    }
-
-    public GameUserRepository getGameUserRepository() {
-        return gameuserRepository;
-    }
-
-    public void setGameUserRepository(GameUserRepository gameuserRepository) {
-        this.gameuserRepository = gameuserRepository;
-    }
-
-    public ConfirmationTokenRepository getConfirmationTokenRepository() {
-        return confirmationTokenRepository;
-    }
-
-    public void setConfirmationTokenRepository(ConfirmationTokenRepository confirmationTokenRepository) {
-        this.confirmationTokenRepository = confirmationTokenRepository;
-    }
-
-    public EmailSenderService getEmailSenderService() {
-        return emailSenderService;
-    }
-
-    public void setEmailSenderService(EmailSenderService emailSenderService) {
-        this.emailSenderService = emailSenderService;
     }
 }
