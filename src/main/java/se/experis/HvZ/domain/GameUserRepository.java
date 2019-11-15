@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GameUserRepository extends CrudRepository<GameUser, Long> {
     GameUser findByUserName(String userName);
+    GameUser findByEmailIgnoreCase(String email);
 }
