@@ -75,21 +75,21 @@ public class HvZApplication {
 			//---------------------------------------Users-----------------------------------------//
 			// Password: password
 
-			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "Pär","ADMIN");
+			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "Token", "password", "kalle@kalle.se", "Pär","ADMIN");
 			gameUserRepository.save(u1);
-			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "Tim","USER");
+			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "Token", "password", "kalle@kalle.se", "Tim","USER");
 			gameUserRepository.save(u2);
-			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "EdisTheDestroyer","USER");
+			GameUser u3 = new GameUser("Edis", "eeeeeeee", "Token", "password", "kalle@kalle.se", "EdisTheDestroyer","USER");
 			gameUserRepository.save(u3);
-			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "MikaelTheDestroyer", "USER");
+			GameUser u4 = new GameUser("Mikael", "rrrrrrrrr", "Token", "password", "kalle@kalle.se", "MikaelTheDestroyer", "USER");
 			gameUserRepository.save(u4);
-			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "CraigTheDestroyer", "USER");
+			GameUser u5 = new GameUser("Craig", "ttttttttt", "Token", "password", "kalle@kalle.se", "CraigTheDestroyer", "USER");
 			gameUserRepository.save(u5);
-			GameUser u6 = new GameUser("postmanTest", "ttttttttt", "Token", "$2a$10$wZQmZulYBewqdfwfwiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmanTest", "USER");
+			GameUser u6 = new GameUser("postmanTest", "ttttttttt", "Token", "password", "kalle@kalle.se", "postmanTest", "USER");
 			gameUserRepository.save(u6);
-			GameUser u7 = new GameUser("Postmantest1", "ttttttttt", "Token", "$2a$10$wZQmZulYBiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmantest1", "USER");
+			GameUser u7 = new GameUser("Postmantest1", "ttttttttt", "Token", "password", "kalle@kalle.se", "postmantest1", "USER");
 			gameUserRepository.save(u7);
-			GameUser u8 = new GameUser("postmanTest3", "ttttttttt", "Token", "$2a$10$wZQmZulYBewqdfwfwiFflXoD9UicF.9.UYB7NzUbUAx0qI8Kc.mgZMFj/6M9W", "kalle@kalle.se", "postmantest3", "USER");
+			GameUser u8 = new GameUser("postmanTest3", "ttttttttt", "Token", "password", "kalle@kalle.se", "postmantest3", "USER");
 			gameUserRepository.save(u8);
 
 			//-------------------------------Players-----------------------------------------------//

@@ -1,6 +1,7 @@
 package se.experis.HvZ.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.*;
 
@@ -50,7 +51,7 @@ public class GameUser {
         this.firstName = firstName;
         this.lastName = lastName;
         this.token = token;
-        this.password = password;
+        this.password = hash(password);
         this.email = email;
         this.userName = userName;
         this.role = role;
@@ -130,5 +131,16 @@ public class GameUser {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String hash(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt(10));
+    }
+
+    public boolean checkPassword(String candidatePassword, String storedHash){
+        if (BCrypt.checkpw(candidatePassword, storedHash))
+            return true;
+        else
+            return false;
     }
 }
