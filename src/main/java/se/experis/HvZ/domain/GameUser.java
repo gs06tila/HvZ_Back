@@ -1,6 +1,7 @@
 package se.experis.HvZ.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.*;
 
@@ -19,9 +20,6 @@ public class GameUser {
     @Column(length=255)
     private String lastName;
 
-    @Column(length=255)
-    private String token;
-
     @Column(nullable = false)
     private String password;
 
@@ -32,7 +30,7 @@ public class GameUser {
     private String userName;
 
     @Column(length = 255)
-    private String role;
+    private String role = "user";
 
     //------------RELATIONS---------------------//
 
@@ -43,15 +41,14 @@ public class GameUser {
     public GameUser() {
     }
 
-    public GameUser(String firstName, String lastName, String token, String password, String email, String userName, String role) {
+    public GameUser(String firstName, String lastName, String password, String email, String userName) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
-        this.token = token;
-        this.password = password;
+        this.password = hash(password);
         this.email = email;
         this.userName = userName;
-        this.role = role;
+
     }
 
 
@@ -86,14 +83,6 @@ public class GameUser {
         this.lastName = lastName;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -120,5 +109,9 @@ public class GameUser {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    private String hash(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt(10));
     }
 }
