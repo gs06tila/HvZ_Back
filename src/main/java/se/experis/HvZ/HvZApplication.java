@@ -76,6 +76,7 @@ public class HvZApplication {
 			// Password: password
 
 			GameUser u1 = new GameUser("Pär", "qqqqqqqqq", "password", "kalle@kalle.se", "Pär");
+			u1.setRole("Admin");
 			gameUserRepository.save(u1);
 			GameUser u2 = new GameUser("Tim", "wwwwwwwwww", "password", "kalle@kalle.se", "Tim");
 			gameUserRepository.save(u2);
