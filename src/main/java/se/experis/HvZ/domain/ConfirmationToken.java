@@ -42,8 +42,8 @@ public class ConfirmationToken {
         return tokenId;
     }
 
-    public void setTokenId(long tokenid) {
-        this.tokenId = tokenid;
+    public void setTokenId(long tokenId) {
+        this.tokenId = tokenId;
     }
 
     public String getConfirmationToken() {
