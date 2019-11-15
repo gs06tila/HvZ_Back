@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable().cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/games").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/gameUsers").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/gameUsers").permitAll().anyRequest().authenticated()
                 .antMatchers(HttpMethod.GET, "/api/gameUsers").permitAll()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                     .anyRequest().authenticated()
