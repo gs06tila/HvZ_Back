@@ -22,7 +22,7 @@ public class GameUser {
     @Column(length=255)
     private String token;
 
-    @Column(nullable = false)
+    @Column()
     private String password;
 
     @Column(length=255)
@@ -33,6 +33,8 @@ public class GameUser {
 
     @Column(length = 255)
     private String role;
+
+    private boolean enabled = false;
 
     //------------RELATIONS---------------------//
 
@@ -120,5 +122,13 @@ public class GameUser {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
