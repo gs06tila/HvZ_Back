@@ -17,10 +17,10 @@ public class Mission {
     private String name;
 
     @Column()
-    private boolean isHumanVisible;
+    private boolean humanVisible;
 
     @Column()
-    private boolean isZombieVisible;
+    private boolean zombieVisible;
 
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -47,10 +47,10 @@ public class Mission {
     public Mission() {
     }
 
-    public Mission(String name, boolean isHumanVisible, boolean isZombieVisible, String description, Date startDate, Date endDate, Double longX, Double latX, List<Game> game) {
+    public Mission(String name, boolean humanVisible, boolean zombieVisible, String description, Date startDate, Date endDate, Double longX, Double latX, List<Game> game) {
         this.name = name;
-        this.isHumanVisible = isHumanVisible;
-        this.isZombieVisible = isZombieVisible;
+        this.humanVisible = humanVisible;
+        this.zombieVisible = zombieVisible;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -72,19 +72,19 @@ public class Mission {
     }
 
     public boolean isHumanVisible() {
-        return isHumanVisible;
+        return humanVisible;
     }
 
     public void setHumanVisible(boolean humanVisible) {
-        isHumanVisible = humanVisible;
+        this.humanVisible = humanVisible;
     }
 
     public boolean isZombieVisible() {
-        return isZombieVisible;
+        return zombieVisible;
     }
 
     public void setZombieVisible(boolean zombieVisible) {
-        isZombieVisible = zombieVisible;
+        this.zombieVisible = zombieVisible;
     }
 
     public String getDescription() {
