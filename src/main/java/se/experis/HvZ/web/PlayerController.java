@@ -24,7 +24,7 @@ public class PlayerController {
 
     @GetMapping("/api/setDeath")
     @ResponseBody
-    public Iterable<Player> getPlayer(@RequestParam String biteCode, @RequestParam int killerId) {
+    public boolean getPlayer(@RequestParam String biteCode, @RequestParam int killerId) {
         Player victim = new Player();
         Player killer = new Player();
         Game g1 = new Game();
@@ -40,9 +40,9 @@ public class PlayerController {
             Death d1 = new Death(52.24323D, 23.32435D, g1, killer, victim);
             deathRepository.save(d1);
 
-            return playerRepository.findPlayerByBiteCode(biteCode);
+            return true;
         } else {
-            return null;
+            return false;
         }
 
 
