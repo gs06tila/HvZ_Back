@@ -48,6 +48,7 @@ public class Player {
     private Death victim;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "player")
+    @JsonIgnore
     private SquadMember squadMember;
 
 

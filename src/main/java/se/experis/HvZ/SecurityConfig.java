@@ -45,9 +45,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // Add this row to allow access to all endpoints
-        //http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
+        http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
 
-        http.csrf().disable().cors().and().authorizeRequests()
+       /* http.csrf().disable().cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/games").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/gameUsers").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/gameUsers").permitAll().anyRequest().authenticated()
@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // Filter for other requests to check JWT in header
                     .addFilterBefore(new AuthenticationFilter(),
                         UsernamePasswordAuthenticationFilter.class);
-
+*/
 
     }
 
