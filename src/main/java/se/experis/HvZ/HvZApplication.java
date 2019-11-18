@@ -62,7 +62,7 @@ public class HvZApplication {
 			Date d2 = new Date(119, 6, 19);
 		//------------------------------------GAME-----------------------------------------------------//
 
-			Game g1 = new Game("Växjö HvZ Game", "Registration", wallOfText, "Växjö Zombie Killers game Viagraparken", 56.87111D, 56.87999D, d1, d2);
+			Game g1 = new Game("Växjö HvZ Game", "Registration", wallOfText, "Växjö Zombie Killers game Viagraparken", 56.87111D, 14.77999D, d1, d2);
 			gameRepository.save(g1);
 			Game g2 = new Game("Karlskrona HvZ Game", "In Progress", wallOfText, "campus gräsvik hvz lördag den 19/11", 50.374652D, 51.938274D,d1, d2);
 			gameRepository.save(g2);
@@ -198,10 +198,10 @@ public class HvZApplication {
 
 			//------------------------------SquadCreate------------------------------------------//
 
-			SquadCreate sc1 = new SquadCreate(57.234356D, 34.236576D, g1, sm1, s1);
+			SquadCreate sc1 = new SquadCreate(56.777356D, 14.811576D, g1, sm1, s1);
 			squadCreateRepository.save(sc1);
 
-			SquadCreate sc2 = new SquadCreate(57.234356D, 34.236576D, g1, sm4, s2);
+			SquadCreate sc2 = new SquadCreate(56.896356D, 14.827576D, g1, sm4, s2);
 			squadCreateRepository.save(sc2);
 
 			//--------------------------------Deaths-------------------------------------------//
