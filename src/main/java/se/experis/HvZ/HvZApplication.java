@@ -62,15 +62,15 @@ public class HvZApplication {
 			Date d2 = new Date(119, 11, 30);
 		//------------------------------------GAME-----------------------------------------------------//
 
-			Game g1 = new Game("Växjö HvZ Game", "Registration", wallOfText, "Växjö Zombie Killers game Viagraparken", 56.87111D, 14.77999D, d1, d2);
+			Game g1 = new Game("Växjö HvZ Game", wallOfText, "Växjö Zombie Killers game Viagraparken", 56.87111D, 14.77999D, d1, d2);
 			gameRepository.save(g1);
-			Game g2 = new Game("Karlskrona HvZ Game", "In Progress", wallOfText, "campus gräsvik hvz lördag den 19/11", 50.374652D, 51.938274D,d1, d2);
+			Game g2 = new Game("Karlskrona HvZ Game", wallOfText, "campus gräsvik hvz lördag den 19/11", 50.374652D, 51.938274D,d1, d2);
 			gameRepository.save(g2);
-			Game g3 = new Game("Malmö HvZ Game", "In Progress", wallOfText, "Malmö turning torso HVZ game", 50.374652D, 51.938274D, d1, d2);
+			Game g3 = new Game("Malmö HvZ Game", wallOfText, "Malmö turning torso HVZ game", 50.374652D, 51.938274D, d1, d2);
 			gameRepository.save(g3);
-			Game g4 = new Game("Göteborg HvZ Game", "In Progress", wallOfText, "Lisebergs HvZ söndag", 50.374652D, 51.938274D,d1, d2);
+			Game g4 = new Game("Göteborg HvZ Game", wallOfText, "Lisebergs HvZ söndag", 50.374652D, 51.938274D,d1, d2);
 			gameRepository.save(g4);
-			Game g5 = new Game("Stockholm HvZ Game", "Completed", wallOfText, "Gröndalunds hvZ tisdag", 50.374652D, 51.938274D, d1, d2);
+			Game g5 = new Game("Stockholm HvZ Game", wallOfText, "Gröndalunds hvZ tisdag", 50.374652D, 51.938274D, d1, d2);
 			gameRepository.save(g5);
 			//---------------------------------------Users-----------------------------------------//
 			// Password: password

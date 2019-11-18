@@ -32,7 +32,7 @@ public class SquadMember {
     @JsonIgnore
     private Player player;
 
-    //------------Constructors---------------//
+    //--------------- Constructors ----------------//
 
 
     public SquadMember() {
@@ -44,7 +44,7 @@ public class SquadMember {
         this.player = player;
     }
 
-    //--------------GetAndSet----------------------//
+    //--------------- Get And Set ----------------------//
 
 
     public Long getSquadMemberId() {

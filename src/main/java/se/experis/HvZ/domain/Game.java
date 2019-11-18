@@ -20,7 +20,7 @@ public class Game {
     private String name;
 
     @Column(length = 255)
-    private String state;
+    private StateType state = StateType.REGISTER;
 
     @Column(columnDefinition = "TEXT")
     private String longDescription;
@@ -39,6 +39,12 @@ public class Game {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
+
+    public enum StateType {
+        REGISTER,
+        IN_PROGRESS,
+        COMPLETED
+    }
 
     //-----------------Relations------------------------------//
 
@@ -72,10 +78,9 @@ public class Game {
     public Game() {
     }
 
-    public Game(String name, String state, String longDescription, String shortDescription, Double lng, Double lat, Date startDate, Date endDate) {
+    public Game(String name, String longDescription, String shortDescription, Double lng, Double lat, Date startDate, Date endDate) {
         super();
         this.name = name;
-        this.state = state;
         this.longDescription = longDescription;
         this.shortDescription = shortDescription;
         this.lng = lng;
@@ -104,11 +109,11 @@ public class Game {
         this.name = name;
     }
 
-    public String getState() {
+    public StateType getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(StateType state) {
         this.state = state;
     }
 
