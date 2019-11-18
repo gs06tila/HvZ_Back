@@ -54,7 +54,8 @@ public class Game {
     @JsonIgnore
     private List<Chat> chats;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")
+    @JsonIgnore
     private List<Mission> missions;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "game")

@@ -25,8 +25,6 @@ public class Mission {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date startDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
@@ -39,24 +37,23 @@ public class Mission {
 
     //----------RELATIONS------------//
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="gameId")
-    private List<Game> games;
+    private Game game;
 
 
     public Mission() {
     }
 
-    public Mission(String name, boolean humanVisible, boolean zombieVisible, String description, Date startDate, Date endDate, Double longX, Double latX, List<Game> game) {
+    public Mission(String name, boolean humanVisible, boolean zombieVisible, String description, Date endDate, Double longX, Double latX, Game game) {
         this.name = name;
         this.humanVisible = humanVisible;
         this.zombieVisible = zombieVisible;
         this.description = description;
-        this.startDate = startDate;
         this.endDate = endDate;
         this.longX = longX;
         this.latX = latX;
-        this.games = game;
+        this.game = game;
     }
 
     public Long getMissionId() {
@@ -95,14 +92,6 @@ public class Mission {
         this.description = description;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
     public Date getEndDate() {
         return endDate;
     }
@@ -127,11 +116,11 @@ public class Mission {
         this.latX = latX;
     }
 
-    public List<Game> getGames() {
-        return games;
+    public Game getGame() {
+        return game;
     }
 
-    public void setGames(List<Game> games) {
-        this.games = games;
+    public void setGame(Game game) {
+        this.game = game;
     }
 }

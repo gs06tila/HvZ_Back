@@ -162,20 +162,14 @@ public class HvZApplication {
 
 			//----------------------------------Mission-------------------------------------------//
 
-			List<Game> lg1 = new ArrayList<Game>();
-			lg1.add(g1);
-			lg1.add(g2);
-			lg1.add(g3);
-			lg1.add(g4);
-			lg1.add(g5);
 
-			Mission m1 = new Mission("help", true, true, "kill all", d1, d2, 56.87455D, 14.80911D, lg1);
+			Mission m1 = new Mission("help", true, true, "kill all", d2, 56.87455D, 14.80911D, g1);
 			missionRepository.save(m1);
 
-			Mission m2 = new Mission("mission2", true, true, "Run for your life", d1, d2, 56.87233D, 14.80811D, lg1);
+			Mission m2 = new Mission("mission2", true, true, "Run for your life", d2, 56.87233D, 14.80811D, g1);
 			missionRepository.save(m2);
 
-			Mission m3 = new Mission("Zombies rules yay :D", true, true, "Kill all the humans", d1, d2, 56.87122D, 14.80722D, lg1);
+			Mission m3 = new Mission("Zombies rules yay :D", true, true, "Kill all the humans", d2, 56.87122D, 14.80722D, g1);
 			missionRepository.save(m3);
 
 
