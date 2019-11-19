@@ -24,6 +24,12 @@ public class Player {
     @Column(length=255)
     private String biteCode;
 
+    @Column(precision=9, scale=6)
+    private Double lng;
+
+    @Column(precision=8, scale=6)
+    private Double lat;
+
     //-----------------------Relations-----------------------------------//
 
     @OneToOne (fetch = FetchType.LAZY)
@@ -66,6 +72,9 @@ public class Player {
         this.biteCode = biteCode;
         this.gameUser = gameUser;
         this.game = game;
+        this.lat = 90.000000;
+        this.lng = 00.000000;
+
     }
 
 
@@ -151,4 +160,19 @@ public class Player {
         this.squadMember = squadMember;
     }
 
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
 }
