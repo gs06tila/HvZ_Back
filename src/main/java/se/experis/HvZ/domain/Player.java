@@ -72,9 +72,8 @@ public class Player {
         this.biteCode = biteCode;
         this.gameUser = gameUser;
         this.game = game;
-        this.lat = 90.123456;
-        this.lng = 00.123456;
-
+        this.lat = 56.87911;
+        this.lng = 14.77999;
     }
 
 
