@@ -25,7 +25,6 @@ public class Mission {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
@@ -34,6 +33,9 @@ public class Mission {
 
     @Column(precision=8, scale=6)
     private Double latX;
+
+    @Column()
+    private boolean completed = false;
 
     //----------RELATIONS------------//
 
@@ -122,5 +124,13 @@ public class Mission {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }
