@@ -1,6 +1,7 @@
 package se.experis.HvZ.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,9 +51,10 @@ public class PlayerController {
 
     @PostMapping("/api/playersdata")
     @ResponseBody
-    public ArrayList getPlayerData(@RequestBody FetchGameInfo fetchGameInfo) {
+    public ArrayNode getPlayerData(@RequestBody FetchGameInfo fetchGameInfo) {
 
-        ArrayList<ObjectNode> playersData = new ArrayList<>();
+        //ArrayList<ObjectNode> playersDataArray = new ArrayList<>();
+        ArrayNode playersDataArray = objectMapper.createArrayNode();
         String userName;
         Boolean isHuman;
         long squadId, playerId;
@@ -60,6 +62,7 @@ public class PlayerController {
 
         int numberOfPlayers = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().size();
         for(int i=0; i < numberOfPlayers ; i++){
+
             ObjectNode playerObject = objectMapper.createObjectNode();
             userName = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().get(i).getGameUser().getUserName();
             isHuman = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().get(i).getHuman();
@@ -80,9 +83,9 @@ public class PlayerController {
                 playerObject.put("squadId", -1);
             }
 
-            playersData.add(playerObject);
+            playersDataArray.add(playerObject);
 
        }
-        return playersData;
+        return playersDataArray;
     }
 }
