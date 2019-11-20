@@ -72,8 +72,8 @@ public class Player {
         this.biteCode = biteCode;
         this.gameUser = gameUser;
         this.game = game;
-        this.lat = 90.000000;
-        this.lng = 00.000000;
+        this.lat = 90.123456;
+        this.lng = 00.123456;
 
     }
 
@@ -107,9 +107,7 @@ public class Player {
     }
 
     public void setHuman(boolean human) {
-        System.out.println("In setHuman--------------------------------------------------------");
         this.human = human;
-        System.out.println("this.human: " + this.human);
     }
 
     public boolean getPatientZero() {

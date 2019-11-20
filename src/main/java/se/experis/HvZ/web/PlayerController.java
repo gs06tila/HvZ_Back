@@ -3,6 +3,8 @@ package se.experis.HvZ.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.experis.HvZ.domain.*;
 
@@ -26,27 +28,23 @@ public class PlayerController {
     @Autowired
     GameRepository gameRepository;
 
-    @GetMapping("/api/setDeath")
+    @PostMapping("/api/setDeath")
     @ResponseBody
-    public boolean getPlayer(@RequestParam String biteCode, @RequestParam int killerId) {
+    public ResponseEntity<Death> getPlayer(@RequestBody DeathCredentials deathCredentials) {
         Player victim = new Player();
         Player killer = new Player();
         Game g1 = new Game();
 
-        victim = playerRepository.findPlayerByBiteCode(biteCode).get(0);
-        killer = playerRepository.findById((long) killerId).get();
+        victim = playerRepository.findPlayerByBiteCode(deathCredentials.getVictimBiteCode()).get(0);
+        killer = playerRepository.findById((long)deathCredentials.getKillerId()).get();
         g1 = killer.getGame();
-        //g1 = gameRepository.findById((long) victim.getGa)
         if(victim != null && killer.getBiteCode() != null) {
             victim.setHuman(false);
-            System.out.println(victim.getBiteCode() + "--------------------------------------------<");
-            System.out.println(killer.getBiteCode() + "--------------------------------------------<");
-            Death d1 = new Death(52.24323D, 23.32435D, g1, killer, victim);
+            Death d1 = new Death(deathCredentials.getLat(), deathCredentials.getLng(), g1, killer, victim);
             deathRepository.save(d1);
-
-            return true;
+            return new ResponseEntity<Death>(d1, HttpStatus.OK);
         } else {
-            return false;
+            return new ResponseEntity<Death>(new Death(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -57,16 +55,23 @@ public class PlayerController {
         ArrayList<ObjectNode> playersData = new ArrayList<>();
         String userName;
         Boolean isHuman;
-        long squadId;
+        long squadId, playerId;
+        double lng,lat;
 
-        int numberOfPlayers = gameRepository.findById((long) 1).get().getPlayers().size();
+        int numberOfPlayers = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().size();
         for(int i=0; i < numberOfPlayers ; i++){
             ObjectNode playerObject = objectMapper.createObjectNode();
-            userName = gameRepository.findById((long) 1).get().getPlayers().get(i).getGameUser().getUserName();
-            isHuman = gameRepository.findById((long) 1).get().getPlayers().get(i).getHuman();
+            userName = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().get(i).getGameUser().getUserName();
+            isHuman = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().get(i).getHuman();
+            playerId = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().get(i).getPlayerId();
+            lng = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().get(i).getLng();
+            lat = gameRepository.findById((long) fetchGameInfo.getGameId()).get().getPlayers().get(i).getLat();
 
             playerObject.put("userName", userName);
             playerObject.put("isHuman", isHuman);
+            playerObject.put("playerId", playerId);
+            playerObject.put("lat", lat);
+            playerObject.put("lng", lng);
 
             if(gameRepository.findById((long) 1).get().getPlayers().get(i).getSquadMember() != null) {
                 squadId = gameRepository.findById((long) 1).get().getPlayers().get(i).getSquadMember().getSquad().getSquadId();
