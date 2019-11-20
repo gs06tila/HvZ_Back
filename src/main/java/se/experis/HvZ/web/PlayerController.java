@@ -51,10 +51,10 @@ public class PlayerController {
 
     @PostMapping("/api/playersdata")
     @ResponseBody
-    public ArrayNode getPlayerData(@RequestBody FetchGameInfo fetchGameInfo) {
+    public ArrayList getPlayerData(@RequestBody FetchGameInfo fetchGameInfo) {
 
-        //ArrayList<ObjectNode> playersDataArray = new ArrayList<>();
-        ArrayNode playersDataArray = objectMapper.createArrayNode();
+        ArrayList<ObjectNode> playersDataArray = new ArrayList<>();
+        //ArrayNode playersDataArray = objectMapper.createArrayNode();
         String userName;
         Boolean isHuman;
         long squadId, playerId;
